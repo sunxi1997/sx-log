@@ -59,9 +59,12 @@
         return this.logs.map(log => {
           let val;
           try {
-            val = typeof log === 'object' || Array.isArray(log) ? JSON.stringify(log, null, "  ") : log.toString();
+            val =
+              typeof log === 'object' || Array.isArray(log) ?
+                JSON.stringify(log, null, "  ") :
+                log + '';
           } catch (e) {
-            val = log.toString();
+            val = log + '';
           }
           return val;
         })
